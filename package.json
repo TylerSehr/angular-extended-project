@@ -1,0 +1,28 @@
+{
+  "name": "nunki-ajax-post",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrimeAcademy/nunki-ajax-post.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrimeAcademy/nunki-ajax-post/issues"
+  },
+  "homepage": "https://github.com/PrimeAcademy/nunki-ajax-post#readme",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "pg": "^7.4.3"
+  }
+}

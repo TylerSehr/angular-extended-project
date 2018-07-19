@@ -5,11 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Books Database</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/style.css" />
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+    <script src="vendors/sweetalert.min.js"></script>
     <script src="scripts/client.js"></script>
+    <script src="scripts/controllers/home.controller.js"></script>
+    <script src="scripts/controllers/genres.controller.js"></script>
+    <script src="scripts/controllers/books.controller.js"></script>
 </head>
-<body>
-    
+<body ng-app="BookApp">
+    <ng-include src="'./views/templates/nav.html'"></ng-include>
     <ng-view></ng-view>
 </body>
 </html>

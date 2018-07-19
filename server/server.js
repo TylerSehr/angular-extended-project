@@ -5,6 +5,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 5000;
+const booksRouter = require('./routes/books.router')
+const genresRouter = require('./routes/genres.router')
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({
     extended: true
@@ -16,5 +18,5 @@ app.listen(PORT, function(){
 app.use(bodyParser.json()); // This line is required for Angular
 //body parser has to run before the routes, put the routes below it on this page
 
-
-
+app.use('/books', booksRouter);
+app.use('/genres', genresRouter)

@@ -1,0 +1,12 @@
+<div>
+    <h1>BOOKS</h1>
+    <form>
+        <input type="text" placeholder="Name" ng-model="vm.newBook.name">
+        <select ng-model="vm.newBook.genre" >
+            <option  value="scifi">scifi</option>
+        </select>
+        <input type="date" placeholder="Date" ng-model="vm.newBook.date">
+        <button ng-click="vm.submitBook()" >SUBMIT</button>
+    </form>
+
+</div>

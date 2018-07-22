@@ -47,7 +47,6 @@ router.put('/:id', (req, res)=>{
         console.log(error);
         res.sendStatus(500);
     })
-    
 })
 
 router.get('/', (req, res)=>{

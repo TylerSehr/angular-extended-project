@@ -35,6 +35,21 @@ router.post('/', (req, res)=>{
     }
 })
 
+router.put('/:id', (req, res)=>{
+    let edit = req.body.data
+    pool.query(`UPDATE "books" SET "name" = $1, "date" = $2, "img_url" = $3, "collection" = $4 WHERE "id" = $5;`, 
+    [edit.name, edit.date, edit.img_url, edit.collection, req.params.id])
+    .then((results)=>{
+        console.log('success');
+        res.sendStatus(201);
+    })
+    .catch((error)=>{
+        console.log(error);
+        res.sendStatus(500);
+    })
+    
+})
+
 router.get('/', (req, res)=>{
     console.log('hi there again');
     pool.query(`SELECT * FROM "books";`)

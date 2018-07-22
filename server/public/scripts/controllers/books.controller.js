@@ -2,8 +2,15 @@ app.controller('BooksController', ['$http', function($http){
     console.log('BooksController Loaded');
     let self = this;
 
+    self.newBook = {
+        name: '',
+        date: '',
+        img_url: '',
+        collection: ''
+    }
     self.collections = [];
     self.books = [];
+    self.editing = false;
 
     self.submitBook = function(){
         console.log(self.newBook);
@@ -35,6 +42,38 @@ app.controller('BooksController', ['$http', function($http){
         self.newBook.date = '';
         self.newBook.img_url = '';
         self.newBook.collection = '';
+    }
+
+    self.openEditor = function(book){
+        console.log(book);
+        self.editing = !self.editing;
+        self.newBook.id = book.id;
+        self.newBook.name = book.name;
+        self.newBook.date = book.date;
+        self.newBook.img_url = book.img_url;
+        self.newBook.collection = book.collection;
+    }
+
+    self.editBook = function(){
+        let id = self.newBook.id
+        $http({
+            url:`/books/${id}`,
+            method: 'PUT',
+            data: {data: self.newBook}
+        }).then(function(response){
+            console.log(response);
+            self.emptyInputs();
+            self.getBooks();
+            self.editing = !self.editing;
+            swal({
+                title: "Book Edited",
+                icon: "success",
+            });
+        }).catch(function(error){
+            console.log(error);
+            alert('something went quite wrong');
+        })
+        
     }
 
     self.getCollections = function(){

@@ -9,9 +9,9 @@ app.config(function($routeProvider){
     }).when('/books', {
         templateUrl: '../views/books.html',
         controller: 'BooksController as vm'
-    }).when('/genres', {
-        templateUrl: '../views/genres.html',
-        controller: 'GenresController as vm'
+    }).when('/collections', {
+        templateUrl: '../views/collections.html',
+        controller: 'CollectionsController as vm'
     }).otherwise({
         template: '<h1>404</h1>'
     })

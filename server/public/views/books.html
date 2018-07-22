@@ -2,11 +2,20 @@
     <h1>BOOKS</h1>
     <form>
         <input type="text" placeholder="Name" ng-model="vm.newBook.name">
-        <select ng-model="vm.newBook.genre" >
-            <option  value="scifi">scifi</option>
+        <select ng-model="vm.newBook.collection" >
+            <option ng-repeat="collection in vm.collections" value="{{collection.name}}">{{collection.name}}</option>
         </select>
         <input type="date" placeholder="Date" ng-model="vm.newBook.date">
+        <input type="text" placeholder="URL of Picture" ng-model="vm.newBook.img_url">
         <button ng-click="vm.submitBook()" >SUBMIT</button>
     </form>
-
+    <div class="card" ng-repeat="book in vm.books">
+        <img src="{{book.img_url}}" style="width:100%">
+        <div class="container">
+          <h4><b>{{book.name}}</b></h4> 
+          <p>{{book.collection}}</p> 
+          <p>{{book.date}}</p> 
+          <button ng-click="vm.deleteBook(book.id)">Delete?</button>
+        </div>
+    </div>
 </div>

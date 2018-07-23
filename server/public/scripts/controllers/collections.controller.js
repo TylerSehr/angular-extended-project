@@ -18,7 +18,7 @@ app.controller('CollectionsController', ['$http', function($http){
             console.log(error);
             alert('collections could not be retrieved');
         })
-    }
+    }//retrieve collections to be displayed on the dom under collectionscontroller
 
     self.submitCollection = function(newCollection){
         console.log('in submitCollection', newCollection);
@@ -39,7 +39,7 @@ app.controller('CollectionsController', ['$http', function($http){
             console.log(error);
             alert('collection could not be submitted')
         })
-    }
+    }//submit a new collection which will then show up under the input field on the books controller
 
     self.deleteCollection = function(collection){
         console.log('in deleteCollection', collection);
@@ -70,7 +70,7 @@ app.controller('CollectionsController', ['$http', function($http){
               swal("coward");
             }
         });
-    }
+    } //deletes a collection and all the books within it 
 
     self.getCollectionBooks = function(collection){
         console.log(collection);
@@ -89,7 +89,7 @@ app.controller('CollectionsController', ['$http', function($http){
                 console.log('getCollectionBooks',error);
             })
         }
-    }
+    }//retrieves a list of the books within a collection and displays them on the dom
 
     self.removeFromCollection = function(book){
         console.log('in removeFromCollection');
@@ -112,7 +112,7 @@ app.controller('CollectionsController', ['$http', function($http){
                 });
             }
         })
-    }
+    }//removes a book from its collection, when you refresh the page the book will no longer appear under that collection
 
     self.undoRemoveFromCollection = function(book){
         let id = book.id;
@@ -128,7 +128,7 @@ app.controller('CollectionsController', ['$http', function($http){
             console.log(error);
             alert('it did not delete your book')
         })
-    }
+    }//undoes the previous function
 
-    self.getCollections();
+    self.getCollections();//retrieves the collections on start for display on the dom
 }])

@@ -7,10 +7,10 @@ app.controller('BooksController', ['$http', function($http){
         date: '',
         img_url: '',
         collection: ''
-    }
+    } //initialize newBook
     self.collections = [];
     self.books = [];
-    self.editing = false;
+    self.editing = false;//tells the html when to show certain editing specific features and hide other ones.
 
     self.submitBook = function(){
         console.log(self.newBook);
@@ -32,9 +32,9 @@ app.controller('BooksController', ['$http', function($http){
             }).catch(function(error){
                 console.log(error);
                 alert('something went quite wrong');
-            })
-        }
-    }
+            })//empties inputs and retrieves list of books from db after successful post
+        }//only submits a book if the name field is filled
+    }//submits a new book
 
     self.emptyInputs = function(){
         console.log('in self.emptyInputs');
@@ -42,7 +42,7 @@ app.controller('BooksController', ['$http', function($http){
         self.newBook.date = '';
         self.newBook.img_url = '';
         self.newBook.collection = '';
-    }
+    }//empties input fields
 
     self.openEditor = function(book){
         console.log(book);
@@ -52,7 +52,7 @@ app.controller('BooksController', ['$http', function($http){
         self.newBook.date = book.date;
         self.newBook.img_url = book.img_url;
         self.newBook.collection = book.collection;
-    }
+    }//sets the editing flag and reassignes newBook to the new info
 
     self.editBook = function(){
         let id = self.newBook.id
@@ -72,9 +72,8 @@ app.controller('BooksController', ['$http', function($http){
         }).catch(function(error){
             console.log(error);
             alert('something went quite wrong');
-        })
-        
-    }
+        })//sends the edited book information to the server to update the database
+    } //for editing books
 
     self.getCollections = function(){
         console.log('in getCollectionsdbrr');
@@ -87,7 +86,7 @@ app.controller('BooksController', ['$http', function($http){
         }).catch(function(error){
             console.log(error);
             alert('collections could not be retrieved');
-        })
+        })//retrieves the list of collections for the book controller to display in the input field
     }
 
     self.getBooks = function(){
@@ -102,7 +101,7 @@ app.controller('BooksController', ['$http', function($http){
             console.log(error);
             alert('your books could not be retrieved')
         })
-    }
+    }//gets the list of books for the book controller to display beneath the input field
 
     self.deleteBook = function(id){
         console.log('in deleteBooks', id);
@@ -133,8 +132,8 @@ app.controller('BooksController', ['$http', function($http){
               swal("Movies and Poems may brick your Phones, but this Book will never harm you.");
             }
         });
-    }
+    }//deletes a book, but only after sweet alerts has told you exactly what is going on.
 
-    self.getCollections();
-    self.getBooks();
+    self.getCollections();//retrieve collections for input field at start
+    self.getBooks();//retrieves books for bookscontroller at start
 }])

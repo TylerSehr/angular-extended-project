@@ -1,15 +1,16 @@
 book_database
 
-CREATE TABLE "books" (
-		"id" SERIAL PRIMARY KEY,
-		"name" VARCHAR(80) NOT NULL,
-		"date" DATE NOT NULL,
-		"img_url" VARCHAR(250),
-		"genre" VARCHAR(30) NOT NULL
+CREATE TABLE books (
+    "id" SERIAL PRIMARY KEY,
+    "name" character varying(80) NOT NULL,
+    "date" date,
+    "img_url" character varying(250),
+    "collection" character varying(30) DEFAULT '0'::character varying
 );
 
-CREATE TABLE "genres" (
-		"id" SERIAL PRIMARY KEY,
-		"name" VARCHAR(20) NOT NULL
+CREATE TABLE collections (
+    "id" SERIAL PRIMARY KEY,
+    "name" character varying(20) NOT NULL,
+    "count" integer NOT NULL DEFAULT 0
 );
 

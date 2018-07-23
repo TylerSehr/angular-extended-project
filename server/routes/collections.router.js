@@ -12,7 +12,7 @@ router.get('/', (req, res)=>{
     .catch((error)=>{
         res.sendStatus(500);
     })
-});
+}); //retrieve collections
 
 router.get('/books', (req, res)=>{
     console.log('getting collections');
@@ -24,7 +24,7 @@ router.get('/books', (req, res)=>{
         console.log(error);
         res.sendStatus(500)
     })
-});
+}); //retrieves books for display within the collection
 
 router.post('/', (req, res)=>{
     console.log('posting collection');
@@ -36,15 +36,15 @@ router.post('/', (req, res)=>{
         console.log(error);
         res.sendStatus(500)
     })
-})
+})//posts a new collection
 
 router.delete('/:collection', (req, res)=>{
     console.log('deleting collection', req.params.collection);
     pool.query(`DELETE FROM "collections" WHERE "name" = $1;`, [req.params.collection])
-    .then((results)=>{
+    .then((results)=>{//deletes collection
         res.sendStatus(201)
         pool.query(`DELETE FROM "books" WHERE "collection" = $1;`, [req.params.collection])
-        .then((results)=>{
+        .then((results)=>{//deletes books within collection
             res.sendStatus(201)
         })
         .catch((error)=>{
@@ -67,18 +67,18 @@ router.get('/:collectionName', (req, res)=>{
     .catch((error)=>{
         res.sendStatus(500);
     })
-})
+})//retrieves books from a specific collection
 
 router.put('/:id', (req, res)=>{
     console.log('removing book from collection');
     pool.query(`SELECT * FROM "books" 
         JOIN "collections" ON "books"."collection" = "collections"."name" 
         WHERE "books"."id" = $1;`, [req.params.id])
-    .then((results)=>{
+    .then((results)=>{//joins the collections together
         let count = results.rows[0].count;
         count--;
         pool.query(`UPDATE "collections" SET "count" = ${count} WHERE "name" = $1;`, [results.rows[0].name])
-        .then((results2)=>{
+        .then((results2)=>{//updates count when removing books from collections
             pool.query(`UPDATE "books" SET "collection" = '0' WHERE "id" = $1;`, [req.params.id])
             res.sendStatus(201);
         })
@@ -104,7 +104,7 @@ router.put('/undo/:id', (req, res)=>{
             res.sendStatus(500)
             console.log(error); 
         })
-    })
+    })//undoes the remove book from collection and reupdates the count.
 })
 
 

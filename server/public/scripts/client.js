@@ -4,9 +4,6 @@ let app = angular.module('BookApp', ['ngRoute']);
 
 app.config(function($routeProvider){
     $routeProvider.when('/', {
-        templateUrl: '../views/home.html',
-        controller: 'HomeController as vm'
-    }).when('/books', {
         templateUrl: '../views/books.html',
         controller: 'BooksController as vm'
     }).when('/collections', {

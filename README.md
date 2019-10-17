@@ -1,13 +1,1 @@
-this is a language you do not understand
 
-hbeglsiaubweglaiuwbegliauwbeg
-elwieubgalwiuebgliuqierubgp iruwgbpaeiourbg
-lerh;oaierhn;aoierbh;oaierbh;aoierbh;aoierbh
-perh;oiaube;rihouaeproiuhb;aeiourbh;aiuerbh
-feb;rhoiuab;eriuhb;aeiurhbpaiuerbh;aiuebr;hiuaberh
-ue;orign;soeirunglisebrglisuebrlgiubesrglisuberg
-ler
-isrhisuebrliguns;eroiubgliseubrgliublaksjbgralisubgase
-naewgaiesubgalisuebgliausebgliaubselgiubslergubalsegu
-fseiubgalsieubiknowthisisveryhelpful
-o

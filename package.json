@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/PrimeAcademy/nunki-ajax-post#readme",
   "dependencies": {
-    "angular": "^1.6.9",
+    "angular": "^1.7.9",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
